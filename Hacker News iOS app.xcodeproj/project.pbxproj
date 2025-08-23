@@ -1,0 +1,568 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		3E6CA0182E58B3B60054C08E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E6C9FF92E58B3B40054C08E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E6CA0002E58B3B40054C08E;
+			remoteInfo = "Hacker News iOS app";
+		};
+		3E6CA0222E58B3B60054C08E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E6C9FF92E58B3B40054C08E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3E6CA0002E58B3B40054C08E;
+			remoteInfo = "Hacker News iOS app";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3E6CA0012E58B3B40054C08E /* Hacker News iOS app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hacker News iOS app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6CA0172E58B3B60054C08E /* Hacker News iOS appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hacker News iOS appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E6CA0212E58B3B60054C08E /* Hacker News iOS appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hacker News iOS appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		3E6CA0292E58B3B60054C08E /* Exceptions for "Hacker News iOS app" folder in "Hacker News iOS app" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3E6CA0002E58B3B40054C08E /* Hacker News iOS app */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		3E6CA0032E58B3B40054C08E /* Hacker News iOS app */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				3E6CA0292E58B3B60054C08E /* Exceptions for "Hacker News iOS app" folder in "Hacker News iOS app" target */,
+			);
+			path = "Hacker News iOS app";
+			sourceTree = "<group>";
+		};
+		3E6CA01A2E58B3B60054C08E /* Hacker News iOS appTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Hacker News iOS appTests";
+			sourceTree = "<group>";
+		};
+		3E6CA0242E58B3B60054C08E /* Hacker News iOS appUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Hacker News iOS appUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3E6C9FFE2E58B3B40054C08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E6CA0142E58B3B60054C08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E6CA01E2E58B3B60054C08E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3E6C9FF82E58B3B40054C08E = {
+			isa = PBXGroup;
+			children = (
+				3E6CA0032E58B3B40054C08E /* Hacker News iOS app */,
+				3E6CA01A2E58B3B60054C08E /* Hacker News iOS appTests */,
+				3E6CA0242E58B3B60054C08E /* Hacker News iOS appUITests */,
+				3E6CA0022E58B3B40054C08E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3E6CA0022E58B3B40054C08E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E6CA0012E58B3B40054C08E /* Hacker News iOS app.app */,
+				3E6CA0172E58B3B60054C08E /* Hacker News iOS appTests.xctest */,
+				3E6CA0212E58B3B60054C08E /* Hacker News iOS appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3E6CA0002E58B3B40054C08E /* Hacker News iOS app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E6CA02A2E58B3B60054C08E /* Build configuration list for PBXNativeTarget "Hacker News iOS app" */;
+			buildPhases = (
+				3E6C9FFD2E58B3B40054C08E /* Sources */,
+				3E6C9FFE2E58B3B40054C08E /* Frameworks */,
+				3E6C9FFF2E58B3B40054C08E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				3E6CA0032E58B3B40054C08E /* Hacker News iOS app */,
+			);
+			name = "Hacker News iOS app";
+			packageProductDependencies = (
+			);
+			productName = "Hacker News iOS app";
+			productReference = 3E6CA0012E58B3B40054C08E /* Hacker News iOS app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3E6CA0162E58B3B60054C08E /* Hacker News iOS appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E6CA02F2E58B3B60054C08E /* Build configuration list for PBXNativeTarget "Hacker News iOS appTests" */;
+			buildPhases = (
+				3E6CA0132E58B3B60054C08E /* Sources */,
+				3E6CA0142E58B3B60054C08E /* Frameworks */,
+				3E6CA0152E58B3B60054C08E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E6CA0192E58B3B60054C08E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3E6CA01A2E58B3B60054C08E /* Hacker News iOS appTests */,
+			);
+			name = "Hacker News iOS appTests";
+			packageProductDependencies = (
+			);
+			productName = "Hacker News iOS appTests";
+			productReference = 3E6CA0172E58B3B60054C08E /* Hacker News iOS appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3E6CA0202E58B3B60054C08E /* Hacker News iOS appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E6CA0322E58B3B60054C08E /* Build configuration list for PBXNativeTarget "Hacker News iOS appUITests" */;
+			buildPhases = (
+				3E6CA01D2E58B3B60054C08E /* Sources */,
+				3E6CA01E2E58B3B60054C08E /* Frameworks */,
+				3E6CA01F2E58B3B60054C08E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3E6CA0232E58B3B60054C08E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				3E6CA0242E58B3B60054C08E /* Hacker News iOS appUITests */,
+			);
+			name = "Hacker News iOS appUITests";
+			packageProductDependencies = (
+			);
+			productName = "Hacker News iOS appUITests";
+			productReference = 3E6CA0212E58B3B60054C08E /* Hacker News iOS appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3E6C9FF92E58B3B40054C08E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					3E6CA0002E58B3B40054C08E = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					3E6CA0162E58B3B60054C08E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 3E6CA0002E58B3B40054C08E;
+					};
+					3E6CA0202E58B3B60054C08E = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 3E6CA0002E58B3B40054C08E;
+					};
+				};
+			};
+			buildConfigurationList = 3E6C9FFC2E58B3B40054C08E /* Build configuration list for PBXProject "Hacker News iOS app" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3E6C9FF82E58B3B40054C08E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 3E6CA0022E58B3B40054C08E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3E6CA0002E58B3B40054C08E /* Hacker News iOS app */,
+				3E6CA0162E58B3B60054C08E /* Hacker News iOS appTests */,
+				3E6CA0202E58B3B60054C08E /* Hacker News iOS appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3E6C9FFF2E58B3B40054C08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E6CA0152E58B3B60054C08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E6CA01F2E58B3B60054C08E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3E6C9FFD2E58B3B40054C08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E6CA0132E58B3B60054C08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E6CA01D2E58B3B60054C08E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3E6CA0192E58B3B60054C08E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E6CA0002E58B3B40054C08E /* Hacker News iOS app */;
+			targetProxy = 3E6CA0182E58B3B60054C08E /* PBXContainerItemProxy */;
+		};
+		3E6CA0232E58B3B60054C08E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3E6CA0002E58B3B40054C08E /* Hacker News iOS app */;
+			targetProxy = 3E6CA0222E58B3B60054C08E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3E6CA02B2E58B3B60054C08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hacker News iOS app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.koushik.HackerNews.Hacker-News-iOS-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3E6CA02C2E58B3B60054C08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Hacker News iOS app/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.koushik.HackerNews.Hacker-News-iOS-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3E6CA02D2E58B3B60054C08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3E6CA02E2E58B3B60054C08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3E6CA0302E58B3B60054C08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.koushik.HackerNews.Hacker-News-iOS-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hacker News iOS app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hacker News iOS app";
+			};
+			name = Debug;
+		};
+		3E6CA0312E58B3B60054C08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.koushik.HackerNews.Hacker-News-iOS-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hacker News iOS app.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Hacker News iOS app";
+			};
+			name = Release;
+		};
+		3E6CA0332E58B3B60054C08E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.koushik.HackerNews.Hacker-News-iOS-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hacker News iOS app";
+			};
+			name = Debug;
+		};
+		3E6CA0342E58B3B60054C08E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.koushik.HackerNews.Hacker-News-iOS-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Hacker News iOS app";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3E6C9FFC2E58B3B40054C08E /* Build configuration list for PBXProject "Hacker News iOS app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E6CA02D2E58B3B60054C08E /* Debug */,
+				3E6CA02E2E58B3B60054C08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E6CA02A2E58B3B60054C08E /* Build configuration list for PBXNativeTarget "Hacker News iOS app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E6CA02B2E58B3B60054C08E /* Debug */,
+				3E6CA02C2E58B3B60054C08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E6CA02F2E58B3B60054C08E /* Build configuration list for PBXNativeTarget "Hacker News iOS appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E6CA0302E58B3B60054C08E /* Debug */,
+				3E6CA0312E58B3B60054C08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E6CA0322E58B3B60054C08E /* Build configuration list for PBXNativeTarget "Hacker News iOS appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3E6CA0332E58B3B60054C08E /* Debug */,
+				3E6CA0342E58B3B60054C08E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3E6C9FF92E58B3B40054C08E /* Project object */;
+}
