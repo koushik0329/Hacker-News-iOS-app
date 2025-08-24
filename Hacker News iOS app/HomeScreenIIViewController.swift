@@ -62,7 +62,7 @@ class HomeScreenIIViewController : UIViewController, UITableViewDelegate, UITabl
         newsTable = UITableView()
         newsTable.translatesAutoresizingMaskIntoConstraints = false
         newsTable.backgroundColor = .clear
-//        newsTable.separatorColor = .darkGray
+        newsTable.separatorColor = .darkGray
         newsTable.delegate = self
         newsTable.dataSource = self
         
