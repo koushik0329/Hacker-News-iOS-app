@@ -29,7 +29,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         Settings(title: "Camera", lefticon: "camera", righticon: "chevron.right"),
         Settings(title: "Control Center", lefticon: "switch.2", righticon: "chevron.right"),
         Settings(title: "Display & Brightness", lefticon: "textformat.size", righticon: "chevron.right"),
-        Settings(title: "Home Screen & App Library", lefticon: "square.grid.2x2", righticon: "chevron.right")
+        Settings(title: "Home Screen & App Library", lefticon: "square.grid.2x2", righticon: "chevron.right"),
+        Settings(title: "Search", lefticon: "magnifyingglass", righticon: "chevron.right"),
+        Settings(title: "Wallpaper", lefticon: "photo.fill", righticon: "chevron.right"),
+        Settings(title: "Notifications", lefticon: "bell.badge.fill", righticon: "chevron.right"),
+        Settings(title: "Sound & Haptics", lefticon: "speaker.wave.2.fill", righticon: "chevron.right"),
+        Settings(title: "Focus", lefticon: "moon.fill", righticon: "chevron.right"),
+        Settings(title: "Screen Time", lefticon: "timer", righticon: "chevron.right"),
+        Settings(title: "Face ID & Passcode", lefticon: "faceid", righticon: "chevron.right"),
+        Settings(title: "Emergency SOS", lefticon: "sos", righticon: "chevron.right"),
+        Settings(title: "Privacy & Security", lefticon: "hand.raised.fill", righticon: "chevron.right"),
+        Settings(title: "Game Center", lefticon: "gamecontroller", righticon: "chevron.right"),
+        Settings(title: "iCloud", lefticon: "icloud.fill", righticon: "chevron.right"),
+        Settings(title: "Wallet & Apple Pay", lefticon: "wallet.bifold.fill", righticon: "chevron.right"),
+        Settings(title: "Apps", lefticon: "apps.iphone", righticon: "chevron.right"),
     ]
     
     override func viewDidLoad() {
@@ -78,18 +91,49 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     // MARK: - TableView DataSource & Delegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
-            return 2
+            return 6
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 5 : settingsList.count - 5
+        
+        switch section {
+            case 0:
+                return 5
+            case 1:
+                return 8
+            case 2:
+                return 4
+            case 3:
+                return 3
+            case 4:
+                return 3
+            case 5:
+                return settingsList.count - 23
+            default:
+                return 0
+            }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
-        let setting = (indexPath.section == 0)
-                    ? settingsList[indexPath.row]
-                    : settingsList[indexPath.row + 5]
+        
+        let setting: Settings
+        switch indexPath.section {
+            case 0:
+                setting = settingsList[indexPath.row]
+            case 1:
+                setting = settingsList[indexPath.row + 5]
+            case 2:
+                setting = settingsList[indexPath.row + 13]
+            case 3:
+                setting = settingsList[indexPath.row + 17]
+            case 4:
+                setting = settingsList[indexPath.row + 20]
+            case 5:
+                setting = settingsList[indexPath.row + 23]
+            default:
+                fatalError("Invalid section")
+            }
         cell.configure(with: setting)
         return cell
     }
@@ -101,11 +145,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20 // Space above each section
+        return 20
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.1 // Prevents unwanted footer space
+        return 0.1 
     }
 
     
