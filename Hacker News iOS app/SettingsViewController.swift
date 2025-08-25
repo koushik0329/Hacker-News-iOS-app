@@ -8,95 +8,90 @@
 import UIKit
 
 struct Settings {
-    var title : String
-    var lefticon : String
-    var righticon : String
+    var title: String
+    var lefticon: String
+    var righticon: String
 }
 
-class SettingsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var settings : UILabel!
-    var settingsI : [String] = [ "Airplane Mode", "Wi-Fi", "Bluetooth", "Cellular", "Battery", "General", "Accessibility", "Camera", "Control Center", "Display & Brightness", "HomeScreen& App Library"]
-    var settingsITable : UITableView!
+    var settingsLabel: UILabel!
+    var settingsTable: UITableView!
     
-    var settingsList : [Settings] = [
+    var settingsList: [Settings] = [
         Settings(title: "Airplane Mode", lefticon: "airplane", righticon: "chevron.right"),
         Settings(title: "Wi-Fi", lefticon: "wifi", righticon: "chevron.right"),
         Settings(title: "Bluetooth", lefticon: "phone.connection.fill", righticon: "chevron.right"),
-        Settings(title: "Cellular", lefticon: "ntenna.radiowaves.left.and.right", righticon: "chevron.right"),
-        Settings(title: "Battery", lefticon: "battery.100percent", righticon: "chevron.right")
+        Settings(title: "Cellular", lefticon: "antenna.radiowaves.left.and.right", righticon: "chevron.right"),
+        Settings(title: "Battery", lefticon: "battery.100percent", righticon: "chevron.right"),
+        Settings(title: "General", lefticon: "gearshape", righticon: "chevron.right"),
+        Settings(title: "Accessibility", lefticon: "figure.wave", righticon: "chevron.right"),
+        Settings(title: "Camera", lefticon: "camera", righticon: "chevron.right"),
+        Settings(title: "Control Center", lefticon: "switch.2", righticon: "chevron.right"),
+        Settings(title: "Display & Brightness", lefticon: "textformat.size", righticon: "chevron.right"),
+        Settings(title: "Home Screen & App Library", lefticon: "square.grid.2x2", righticon: "chevron.right")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         setupTable()
     }
     
     func setupUI() {
+        view.backgroundColor = .systemGroupedBackground
         
-        view.backgroundColor = .systemBackground
-        
-        settings = UILabel()
-        settings.text = "Settings"
-        settings.font = .systemFont(ofSize: 36, weight: .bold)
-        settings.textAlignment = .left
-        settings.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(settings)
+        settingsLabel = UILabel()
+        settingsLabel.text = "Settings"
+        settingsLabel.font = .systemFont(ofSize: 36, weight: .bold)
+        settingsLabel.textAlignment = .left
+        settingsLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(settingsLabel)
         
         NSLayoutConstraint.activate([
-            settings.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 42),
-            settings.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            settings.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            settingsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 42),
+            settingsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            settingsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
         ])
-        
     }
     
-    func setupTable() {
-        settingsITable = UITableView()
-        settingsITable.translatesAutoresizingMaskIntoConstraints = false
-        settingsITable.backgroundColor = .systemBackground
-        settingsITable.delegate = self
-        settingsITable.dataSource = self
+    private func setupTable() {
+        settingsTable = UITableView(frame: .zero, style: .insetGrouped)
+        settingsTable.translatesAutoresizingMaskIntoConstraints = false
+        settingsTable.delegate = self
+        settingsTable.dataSource = self
+        settingsTable.backgroundColor = .systemGroupedBackground
+        settingsTable.separatorStyle = .singleLine
+        settingsTable.register(SettingsTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
         
-        settingsITable.register(SettingsTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
-        
-        view.addSubview(settingsITable)
+        view.addSubview(settingsTable)
         
         NSLayoutConstraint.activate([
-            settingsITable.topAnchor.constraint(equalTo: settings.bottomAnchor, constant: 24),
-            settingsITable.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 4),
-            settingsITable.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
-            settingsITable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            settingsTable.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 24),
+            settingsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            settingsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            settingsTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
-        
     }
+
+    
+    // MARK: - TableView DataSource & Delegate
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
+            return 2
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 5
-        }
-        
-        return settingsI.count - 5
+        return section == 0 ? 5 : settingsList.count - 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
-        if indexPath.section == 0 {
-            cell.textLabel?.text = settingsI[indexPath.row]
-        }
-        else {
-            cell.textLabel?.text = settingsI[indexPath.row + 5]
-        }
-        
+        let setting = (indexPath.section == 0)
+                    ? settingsList[indexPath.row]
+                    : settingsList[indexPath.row + 5]
+        cell.configure(with: setting)
         return cell
-        
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -104,4 +99,15 @@ class SettingsViewController : UIViewController, UITableViewDelegate, UITableVie
         headerView.backgroundColor = .systemGroupedBackground
         return headerView
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20 // Space above each section
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1 // Prevents unwanted footer space
+    }
+
+    
+    
 }

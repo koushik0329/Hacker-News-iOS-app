@@ -25,32 +25,34 @@ class SettingsTableViewCell: UITableViewCell {
     private func setupCell() {
         backgroundColor = .systemBackground
         
-        titleLabel.font = .systemFont(ofSize: 17)
-        titleLabel.textColor = .label
+        leftIcon.contentMode = .scaleAspectFit
+        leftIcon.translatesAutoresizingMaskIntoConstraints = false
+        leftIcon.tintColor = .systemBlue
+        contentView.addSubview(leftIcon)
+        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(titleLabel)
         
-        leftIcon.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(leftIcon)
-        
+        rightIcon.contentMode = .scaleAspectFit
         rightIcon.translatesAutoresizingMaskIntoConstraints = false
+        rightIcon.tintColor = .systemGray
         contentView.addSubview(rightIcon)
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 4),
-            titleLabel.trailingAnchor.constraint(equalTo: leftIcon.leadingAnchor, constant: -8),
+            leftIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            leftIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            leftIcon.widthAnchor.constraint(equalToConstant: 24),
+            leftIcon.heightAnchor.constraint(equalToConstant: 24),
             
-            leftIcon.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            leftIcon.leadingAnchor.constraint(equalTo: leftIcon.trailingAnchor, constant: 4),
-            
-            rightIcon.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            rightIcon.leadingAnchor.constraint(equalTo: rightIcon.trailingAnchor, constant: 8),
-            
-            
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leftIcon.trailingAnchor, constant: 12),
+            titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: rightIcon.leadingAnchor, constant: -12),
+
+            rightIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            rightIcon.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            rightIcon.widthAnchor.constraint(equalToConstant: 16),
+            rightIcon.heightAnchor.constraint(equalToConstant: 16)
         ])
-        textLabel?.font = .systemFont(ofSize: 17)
-        textLabel?.textColor = .label
     }
     
     func configure(with settings: Settings) {
