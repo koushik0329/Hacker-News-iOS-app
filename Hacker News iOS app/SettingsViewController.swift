@@ -13,9 +13,10 @@ struct Settings {
     var righticon: String
 }
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: UIViewController {
     
     var settingsLabel: UILabel!
+    var searchBar: UISearchBar!
     var settingsTable: UITableView!
     
     var settingsList: [Settings] = [
@@ -45,9 +46,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         Settings(title: "Apps", lefticon: "apps.iphone", righticon: "chevron.right"),
     ]
     
+    var filteredData: [Settings] = []
+    var searching: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupSearchBar()
         setupTable()
     }
     
@@ -68,8 +73,27 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         ])
     }
     
+    func setupSearchBar() {
+        
+        searchBar = UISearchBar()
+        searchBar.placeholder = "Search Settings"
+        searchBar.delegate = self
+        filteredData = settingsList
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(searchBar)
+        
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 12),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            searchBar.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        
+    }
+    
     private func setupTable() {
-        settingsTable = UITableView(frame: .zero, style: .insetGrouped)
+        settingsTable = UITableView(frame: CGRect(x: 0, y: 100, width: 300, height: 500), style: .insetGrouped)
         settingsTable.translatesAutoresizingMaskIntoConstraints = false
         settingsTable.delegate = self
         settingsTable.dataSource = self
@@ -80,22 +104,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         view.addSubview(settingsTable)
         
         NSLayoutConstraint.activate([
-            settingsTable.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 24),
+            settingsTable.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 12),
             settingsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             settingsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             settingsTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-
     
+}
     // MARK: - TableView DataSource & Delegate
+extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-            return 6
+        return searching ? 1 : 6
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        if searching {
+            return filteredData.count
+        }
         switch section {
             case 0:
                 return 5
@@ -118,22 +145,28 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsCell", for: indexPath) as! SettingsTableViewCell
         
         let setting: Settings
-        switch indexPath.section {
-            case 0:
-                setting = settingsList[indexPath.row]
-            case 1:
-                setting = settingsList[indexPath.row + 5]
-            case 2:
-                setting = settingsList[indexPath.row + 13]
-            case 3:
-                setting = settingsList[indexPath.row + 17]
-            case 4:
-                setting = settingsList[indexPath.row + 20]
-            case 5:
-                setting = settingsList[indexPath.row + 23]
-            default:
-                fatalError("Invalid section")
-            }
+        
+        if searching {
+            setting = filteredData[indexPath.row]
+        }
+        else {
+            switch indexPath.section {
+                case 0:
+                    setting = settingsList[indexPath.row]
+                case 1:
+                    setting = settingsList[indexPath.row + 5]
+                case 2:
+                    setting = settingsList[indexPath.row + 13]
+                case 3:
+                    setting = settingsList[indexPath.row + 17]
+                case 4:
+                    setting = settingsList[indexPath.row + 20]
+                case 5:
+                    setting = settingsList[indexPath.row + 23]
+                default:
+                    fatalError("Invalid section")
+                }
+        }
         cell.configure(with: setting)
         return cell
     }
@@ -147,11 +180,36 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 20
     }
+    
+}
 
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.1 
+extension SettingsViewController: UISearchBarDelegate {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
     }
-
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print(searchBar.text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        filteredData = []
+        searching = true
+        
+        for i in settingsList {
+            if i.title.lowercased().contains(searchBar.text!.lowercased()) {
+                filteredData.append(i)
+            }
+        }
+        
+        settingsTable.reloadData()
+    }
 }
