@@ -75,7 +75,8 @@ class ContactsTableViewCell: UITableViewCell {
         pictureImageView.image = UIImage(named: contact.profilePicture)
         nameLabel.text = contact.name
         positionLabel.text = contact.position
-        countryImageView.image = UIImage(systemName: "flag")
+//        countryImageView.image = UIImage(systemName: "flag")
+        countryImageView.image = UIImage(named: contact.country)
     }
     
 }

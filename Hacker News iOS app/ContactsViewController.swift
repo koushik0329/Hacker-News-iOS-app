@@ -21,13 +21,13 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     var searchBar: UISearchBar!
     
     var contacts : [Contact] = [
-        Contact(profilePicture: "sample", name: "Mohammad Hussain", position: "SEO Specialist", country: "Germany"),
-        Contact(profilePicture: "sample1", name: "John Young", position: "Interactive Designer", country: "afghanistan"),
-        Contact(profilePicture: "sample", name: "Tamilarasi Mohan", position: "Architect", country: "albania"),
-        Contact(profilePicture: "sample1", name: "Kim Yu", position: "Economist", country: "brazil"),
-        Contact(profilePicture: "sample", name: "Derek Fowler", position: "Web Strategist", country: "argentina"),
-        Contact(profilePicture: "sample", name: "Shreya Nithin", position: "Product Designer", country: "azerbaijan"),
-        Contact(profilePicture: "sample1", name: "Emily Adams", position: "Editor", country: "bolivia")
+        Contact(profilePicture: "sample", name: "Mohammad Hussain", position: "SEO Specialist", country: "Argentina"),
+        Contact(profilePicture: "sample1", name: "John Young", position: "Interactive Designer", country: "Bolivia"),
+        Contact(profilePicture: "sample", name: "Tamilarasi Mohan", position: "Architect", country: "Albania"),
+        Contact(profilePicture: "sample1", name: "Kim Yu", position: "Economist", country: "Brazil"),
+        Contact(profilePicture: "sample", name: "Derek Fowler", position: "Web Strategist", country: "Argentina"),
+        Contact(profilePicture: "sample", name: "Shreya Nithin", position: "Product Designer", country: "Azerbaijan"),
+        Contact(profilePicture: "sample1", name: "Emily Adams", position: "Editor", country: "Bolivia")
     ]
     
     var filteredData: [Contact] = []
@@ -116,26 +116,26 @@ class ContactsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print(searchBar.text)
+        if searchText.isEmpty {
+                isSearch = false
+                filteredData.removeAll()
+        } else {
+            isSearch = true
+            filteredData = contacts.filter { contact in
+                contact.name.lowercased().contains(searchText.lowercased())
+            }
+        }
+        contactsTableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        searchBar.resignFirstResponder()
+        isSearch = false
+        contactsTableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        filteredData = []
-        isSearch = true
-        for contact in contacts {
-            if contact.name.lowercased().contains(searchBar.text!.lowercased()) {
-                filteredData.append(contact)
-            }
-        }
-        
-        contactsTableView.reloadData()
-
+        searchBar.resignFirstResponder()
     }
 }

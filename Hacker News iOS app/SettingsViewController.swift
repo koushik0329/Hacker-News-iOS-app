@@ -190,10 +190,19 @@ extension SettingsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print(searchBar.text)
+        
+        if searchText.isEmpty {
+            searching = false
+            filteredData = []
+        }
+        else {
+            searching = true
+            filteredData = []
+            filteredData = settingsList.filter {setting in
+                setting.title.lowercased().contains(searchText.lowercased())
+            }
+        }
+        settingsTable.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -201,15 +210,6 @@ extension SettingsViewController: UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        filteredData = []
-        searching = true
-        
-        for i in settingsList {
-            if i.title.lowercased().contains(searchBar.text!.lowercased()) {
-                filteredData.append(i)
-            }
-        }
-        
-        settingsTable.reloadData()
+        searchBar.resignFirstResponder()
     }
 }
