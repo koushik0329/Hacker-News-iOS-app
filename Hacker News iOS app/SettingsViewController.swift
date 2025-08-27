@@ -207,6 +207,9 @@ extension SettingsViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
+        searchBar.resignFirstResponder()
+        searching = false
+        settingsTable.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
