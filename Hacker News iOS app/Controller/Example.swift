@@ -7,27 +7,22 @@
 
 import UIKit
 
-struct Emp {
-    var name: String
-    var id: Int
-}
-
-class Example: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class Example: UIViewController{
     var nameLabel : UILabel!
     var tableView : UITableView!
     
-    var employees : [Emp] = [
-        Emp(name: "kosushik", id: 1),
-        Emp(name: "koushik", id: 2),
-    ]
+    var employees : [Emp] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        employees = Emp.getEmp()
         
         setupUI()
         setupTable()
     }
-    
+}
+
+extension Example {
     func setupUI(){
         nameLabel = UILabel()
         nameLabel.text = "Hello, World!"
@@ -35,7 +30,7 @@ class Example: UIViewController, UITableViewDelegate, UITableViewDataSource{
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameLabel)
         print("asdnk ")
-     
+        
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
@@ -59,7 +54,9 @@ class Example: UIViewController, UITableViewDelegate, UITableViewDataSource{
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+}
     
+extension Example : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Examplecell", for: indexPath) as! ExampleTableViewCell
         cell.configure(with: employees[indexPath.row])
@@ -69,6 +66,4 @@ class Example: UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return employees.count
     }
-    
-    
 }

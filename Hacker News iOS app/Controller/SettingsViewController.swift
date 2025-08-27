@@ -7,112 +7,42 @@
 
 import UIKit
 
-struct Settings {
-    var title: String
-    var lefticon: String
-    var righticon: String
-}
+
 
 class SettingsViewController: UIViewController {
     
-    var settingsLabel: UILabel!
-    var searchBar: UISearchBar!
-    var settingsTable: UITableView!
+    //MARK: Properties
     
-    var settingsList: [Settings] = [
-        Settings(title: "Airplane Mode", lefticon: "airplane", righticon: "chevron.right"),
-        Settings(title: "Wi-Fi", lefticon: "wifi", righticon: "chevron.right"),
-        Settings(title: "Bluetooth", lefticon: "phone.connection.fill", righticon: "chevron.right"),
-        Settings(title: "Cellular", lefticon: "antenna.radiowaves.left.and.right", righticon: "chevron.right"),
-        Settings(title: "Battery", lefticon: "battery.100percent", righticon: "chevron.right"),
-        Settings(title: "General", lefticon: "gearshape", righticon: "chevron.right"),
-        Settings(title: "Accessibility", lefticon: "figure.wave", righticon: "chevron.right"),
-        Settings(title: "Camera", lefticon: "camera", righticon: "chevron.right"),
-        Settings(title: "Control Center", lefticon: "switch.2", righticon: "chevron.right"),
-        Settings(title: "Display & Brightness", lefticon: "textformat.size", righticon: "chevron.right"),
-        Settings(title: "Home Screen & App Library", lefticon: "square.grid.2x2", righticon: "chevron.right"),
-        Settings(title: "Search", lefticon: "magnifyingglass", righticon: "chevron.right"),
-        Settings(title: "Wallpaper", lefticon: "photo.fill", righticon: "chevron.right"),
-        Settings(title: "Notifications", lefticon: "bell.badge.fill", righticon: "chevron.right"),
-        Settings(title: "Sound & Haptics", lefticon: "speaker.wave.2.fill", righticon: "chevron.right"),
-        Settings(title: "Focus", lefticon: "moon.fill", righticon: "chevron.right"),
-        Settings(title: "Screen Time", lefticon: "timer", righticon: "chevron.right"),
-        Settings(title: "Face ID & Passcode", lefticon: "faceid", righticon: "chevron.right"),
-        Settings(title: "Emergency SOS", lefticon: "sos", righticon: "chevron.right"),
-        Settings(title: "Privacy & Security", lefticon: "hand.raised.fill", righticon: "chevron.right"),
-        Settings(title: "Game Center", lefticon: "gamecontroller", righticon: "chevron.right"),
-        Settings(title: "iCloud", lefticon: "icloud.fill", righticon: "chevron.right"),
-        Settings(title: "Wallet & Apple Pay", lefticon: "wallet.bifold.fill", righticon: "chevron.right"),
-        Settings(title: "Apps", lefticon: "apps.iphone", righticon: "chevron.right"),
-    ]
+    var settingsLabel: UILabel!
+    var searchBar: UISearchBar! = UISearchBar()
+    var settingsTable: UITableView! = UITableView()
+    
+    var settingsList: [Settings] = []
     
     var filteredData: [Settings] = []
     var searching: Bool = false
     
+    //MARK: View Life Cycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsList = Settings.getSettingsList()
+        
         setupUI()
         setupSearchBar()
         setupTable()
+        setupDelegate()
     }
     
-    func setupUI() {
-        view.backgroundColor = .systemGroupedBackground
-        
-        settingsLabel = UILabel()
-        settingsLabel.text = "Settings"
-        settingsLabel.font = .systemFont(ofSize: 36, weight: .bold)
-        settingsLabel.textAlignment = .left
-        settingsLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(settingsLabel)
-        
-        NSLayoutConstraint.activate([
-            settingsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 42),
-            settingsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            settingsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
-        ])
-    }
-    
-    func setupSearchBar() {
-        
-        searchBar = UISearchBar()
-        searchBar.placeholder = "Search Settings"
+    func setupDelegate(){
         searchBar.delegate = self
-        filteredData = settingsList
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(searchBar)
-        
-        NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 12),
-            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
-            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-            searchBar.heightAnchor.constraint(equalToConstant: 40)
-        ])
-        
-        
-    }
-    
-    private func setupTable() {
-        settingsTable = UITableView(frame: CGRect(x: 0, y: 100, width: 300, height: 500), style: .insetGrouped)
-        settingsTable.translatesAutoresizingMaskIntoConstraints = false
         settingsTable.delegate = self
         settingsTable.dataSource = self
-        settingsTable.backgroundColor = .systemGroupedBackground
-        settingsTable.separatorStyle = .singleLine
-        settingsTable.register(SettingsTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
-        
-        view.addSubview(settingsTable)
-        
-        NSLayoutConstraint.activate([
-            settingsTable.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 12),
-            settingsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            settingsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            settingsTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])
     }
-    
 }
+    
     // MARK: - TableView DataSource & Delegate
+
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -183,6 +113,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
+// MARK: - SearchBar Delegate methods
+
 extension SettingsViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
@@ -215,4 +147,63 @@ extension SettingsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
+}
+
+// MARK: - Helper methods
+
+extension SettingsViewController{
+    
+    func setupUI() {
+        view.backgroundColor = .systemGroupedBackground
+        
+        settingsLabel = UILabel()
+        settingsLabel.text = "Settings"
+        settingsLabel.font = .systemFont(ofSize: 36, weight: .bold)
+        settingsLabel.textAlignment = .left
+        settingsLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(settingsLabel)
+        
+        NSLayoutConstraint.activate([
+            settingsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 42),
+            settingsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
+            settingsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+        ])
+    }
+    
+    func setupSearchBar() {
+        
+        searchBar = UISearchBar()
+        searchBar.placeholder = "Search Settings"
+        filteredData = settingsList
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(searchBar)
+        
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: settingsLabel.bottomAnchor, constant: 12),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            searchBar.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        
+    }
+    
+    func setupTable() {
+        settingsTable = UITableView(frame: CGRect(x: 0, y: 100, width: 300, height: 500), style: .insetGrouped)
+        settingsTable.translatesAutoresizingMaskIntoConstraints = false
+        
+        settingsTable.backgroundColor = .systemGroupedBackground
+        settingsTable.separatorStyle = .singleLine
+        settingsTable.register(SettingsTableViewCell.self, forCellReuseIdentifier: "SettingsCell")
+        
+        view.addSubview(settingsTable)
+        
+        NSLayoutConstraint.activate([
+            settingsTable.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 12),
+            settingsTable.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            settingsTable.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            settingsTable.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+    }
+    
 }

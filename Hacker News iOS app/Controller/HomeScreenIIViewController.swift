@@ -7,38 +7,53 @@
 
 import UIKit
 
-struct NewsII {
-    let id: String?
-    let title: String?
-    let num_comments: Int?
-    let points: Int?
-    let url: String?
-    let author: String?
-    let created_at: String?
-}
-
-class HomeScreenIIViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeScreenIIViewController : UIViewController {
+    
+    //MARK: Properties
     
     var newsLabel : UILabel!
     var newsTable : UITableView!
     
-    var newsList : [NewsII] = [
-        NewsII(id: "1", title: "Show HN: Draw a fish and watch it swim with the others", num_comments: 211, points: 813, url: nil, author: "hallak", created_at: "4 days ago"),
-        NewsII(id: "2", title: "At 17, Hannah Cairo solved a major math mystery", num_comments: 125, points: 246, url: nil, author: "baruchel", created_at: "12 hours ago"),
-        NewsII(id: "3", title: "Replacing tmux in my dev workflow", num_comments: 275, points: 242, url: nil, author: "elashri", created_at: "20 hours ago"),
-        NewsII(id: "4", title: "Cerebras Code", num_comments: 99, points: 236, url: nil, author: "d3vr", created_at: "7 hours ago"),
-        NewsII(id: "5", title: "I couldn't submit a PR, so I got hired and fixed it myself", num_comments: 119, points: 206, url: nil, author: "skeptrune", created_at: "12 hours ago"),
-        NewsII(id: "6", title: "Google shifts goo.gl policy: Inactive links deactivated, active links preserved", num_comments: 151, points: 204, url: nil, author: "shuuji3", created_at: "11 hours ago")
-
-    ]
+    var newsList : [NewsII] = []
+    
+    //MARK: View Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newsList = NewsII.getNewsIIList()
         
         setupUI()
         setupTable()
     }
+}
 
+// MARK: - TableView DataSource & Delegate
+
+extension HomeScreenIIViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return newsList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsTableViewCell else {
+                    return UITableViewCell()
+                }
+                
+        let news: NewsII = newsList[indexPath.row]
+        cell.configure(with: news)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
+    
+}
+
+// MARK: - Helper methods
+
+extension HomeScreenIIViewController {
     func setupUI() {
         
         view.backgroundColor = .black
@@ -55,7 +70,7 @@ class HomeScreenIIViewController : UIViewController, UITableViewDelegate, UITabl
             newsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 42),
             newsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             newsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 285)
-            ])
+        ])
     }
     
     func setupTable() {
@@ -77,23 +92,4 @@ class HomeScreenIIViewController : UIViewController, UITableViewDelegate, UITabl
             newsTable.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsTableViewCell else {
-                    return UITableViewCell()
-                }
-                
-        let news: NewsII = newsList[indexPath.row]
-        cell.configure(with: news)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
-    }
-    
 }
