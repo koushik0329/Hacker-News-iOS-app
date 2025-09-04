@@ -2,26 +2,22 @@
 //  HomeScreenIIViewController.swift
 //  Hacker News iOS app
 //
-//  Created by Koushik Reddy Kambham on 8/22/25.
+//  Created by Koushik Reddy Kambham on 9/4/25.
 //
 
 import UIKit
 
-class HomeScreenIIViewController : UIViewController {
+class HomeScreenIIViewController: UIViewController {
     
     //MARK: Properties
+    private let viewModel = HomeScreenIIViewModel()
     
-    var newsLabel : UILabel!
-    var newsTable : UITableView!
+    var newsLabel: UILabel!
+    var newsTable: UITableView!
     
-    var newsList : [NewsII] = []
-    
-    //MARK: View Life Cycle Methods
-    
+    //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsList = NewsII.getNewsIIList()
-        
         setupUI()
         setupTable()
     }
@@ -32,30 +28,31 @@ class HomeScreenIIViewController : UIViewController {
 extension HomeScreenIIViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsList.count
+        return viewModel.getNewsListCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "NewsCell", for: indexPath) as? NewsTableViewCell else {
-                    return UITableViewCell()
-                }
-                
-        let news: NewsII = newsList[indexPath.row]
-        cell.configure(with: news)
+            return UITableViewCell()
+        }
+        
+        if let news = viewModel.getNewsII(at: indexPath.row) {
+            cell.configure(with: news)
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return viewModel.getNewsHeight()
     }
-    
 }
 
-// MARK: - Helper methods
+// MARK: - UI Setup
 
 extension HomeScreenIIViewController {
+    
     func setupUI() {
-        
         view.backgroundColor = .black
         
         newsLabel = UILabel()
@@ -68,8 +65,7 @@ extension HomeScreenIIViewController {
         
         NSLayoutConstraint.activate([
             newsLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 42),
-            newsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            newsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 285)
+            newsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16)
         ])
     }
     
@@ -80,7 +76,6 @@ extension HomeScreenIIViewController {
         newsTable.separatorColor = .darkGray
         newsTable.delegate = self
         newsTable.dataSource = self
-        
         newsTable.register(NewsTableViewCell.self, forCellReuseIdentifier: "NewsCell")
         
         view.addSubview(newsTable)
