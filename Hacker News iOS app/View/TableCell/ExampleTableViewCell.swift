@@ -37,8 +37,8 @@ class ExampleTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(with emp : Emp) {
-        nameLabel.text = emp.name
-        idLabel.text = "\(emp.id)"
+    func configure(with name : String, id : Int) {
+        nameLabel.text = name
+        idLabel.text = "\(id)"
     }
 }

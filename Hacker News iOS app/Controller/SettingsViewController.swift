@@ -11,12 +11,13 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    //MARK: Properties
+    //MARK: Propertie s
     
     var settingsLabel: UILabel!
     var searchBar: UISearchBar! = UISearchBar()
     var settingsTable: UITableView! = UITableView()
     
+    var viewModel : SettingsViewModel! = SettingsViewModel()
     var settingsList: [Settings] = []
     
     var filteredData: [Settings] = []
@@ -26,7 +27,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingsList = Settings.getSettingsList()
+        settingsList = viewModel.getSettingsList()
         
         setupUI()
         setupSearchBar()
@@ -46,29 +47,14 @@ class SettingsViewController: UIViewController {
 extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return searching ? 1 : 6
+        return searching ? 1 : viewModel.getNumberOfSections()
         }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searching {
             return filteredData.count
         }
-        switch section {
-            case 0:
-                return 5
-            case 1:
-                return 8
-            case 2:
-                return 4
-            case 3:
-                return 3
-            case 4:
-                return 3
-            case 5:
-                return settingsList.count - 23
-            default:
-                return 0
-            }
+        return viewModel.getSettingsCountForSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,22 +66,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             setting = filteredData[indexPath.row]
         }
         else {
-            switch indexPath.section {
-                case 0:
-                    setting = settingsList[indexPath.row]
-                case 1:
-                    setting = settingsList[indexPath.row + 5]
-                case 2:
-                    setting = settingsList[indexPath.row + 13]
-                case 3:
-                    setting = settingsList[indexPath.row + 17]
-                case 4:
-                    setting = settingsList[indexPath.row + 20]
-                case 5:
-                    setting = settingsList[indexPath.row + 23]
-                default:
-                    fatalError("Invalid section")
-                }
+            guard let settingItem = viewModel.getSettingForSection(indexPath.section, row: indexPath.row) else {
+                        fatalError("Invalid section/row combination")
+                    }
+            setting = settingItem
         }
         cell.configure(with: setting)
         return cell
@@ -108,7 +82,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        viewModel.getHeightForHeaderInSection(section)
     }
     
 }

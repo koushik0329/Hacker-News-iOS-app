@@ -161,6 +161,36 @@
             </objects>
             <point key="canvasLocation" x="3440" y="223"/>
         </scene>
+        <!--SpotifyViewController-->
+        <scene sceneID="qIo-mO-FsD">
+            <objects>
+                <viewController title="SpotifyViewController" id="Nk4-NL-set" customClass="SpotifyViewController" customModule="Hacker_News_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vdW-hh-gAS">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zEB-Sx-mp0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ID-cc-R3B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4674" y="158"/>
+        </scene>
+        <!--TextFieldViewController-->
+        <scene sceneID="OW1-bO-81R">
+            <objects>
+                <viewController title="TextFieldViewController" id="lq0-Z6-TsX" customClass="TextFieldViewController" customModule="Hacker_News_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bIo-Mg-NRe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="KSO-d8-46A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5tI-uY-utn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5964" y="173"/>
+        </scene>
         <!--Contacts View Controller-->
         <scene sceneID="mbP-H2-vdr">
             <objects>
@@ -175,6 +205,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxc-RY-02N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2022" y="913"/>
+        </scene>
+        <!--ContactsSearchViewController-->
+        <scene sceneID="ze7-qZ-bv6">
+            <objects>
+                <viewController title="ContactsSearchViewController" id="mnd-fG-BUw" customClass="ContactsSearchViewController" customModule="Hacker_News_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KtN-jh-txE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tAG-4t-7qt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="phq-BM-X0C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3442" y="1028"/>
+        </scene>
+        <!--Car Makers View Controller-->
+        <scene sceneID="1HA-jT-UMB">
+            <objects>
+                <viewController id="fs2-Ja-58D" customClass="CarMakersViewController" customModule="Hacker_News_iOS_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="asy-dy-1uo">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="YXK-w7-zXg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aP6-DP-07B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4742" y="1042"/>
         </scene>
     </scenes>
     <resources>

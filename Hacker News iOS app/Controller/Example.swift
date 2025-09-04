@@ -13,9 +13,12 @@ class Example: UIViewController{
     
     var employees : [Emp] = []
     
+    var exampleViewModel : ExampleViewModel! = ExampleViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        employees = Emp.getEmp()
+//        /*employees*/ = exampleViewModel.getEmp()
+        
         
         setupUI()
         setupTable()
@@ -59,11 +62,14 @@ extension Example {
 extension Example : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Examplecell", for: indexPath) as! ExampleTableViewCell
-        cell.configure(with: employees[indexPath.row])
+        let employee = exampleViewModel.getEmployee(at: indexPath.row)
+        cell.configure(with: employee.name, id: employee.id)
         return cell
     }
+
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employees.count
+        return exampleViewModel.getEmployeeCount()
     }
 }
